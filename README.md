@@ -3,9 +3,8 @@
 Proyecto de Investigacion en **Machine Learning** para entrenar una rede neuronal recurrente(RNN), basado en LSTM( Red de Memoria a Corto y Largo Plazo (en inglés, Long Short-Term Memory), generarn un pronostico para los siguiente 6 meses.
 
 ### Curso : Proyecto de Investigación II
-#### Integrantes: 
-    Hilario Aradiel
-    García Fernando
+#### Integrante: 
+    Diego Fernandez 
 ---
 
 ## Estructura del repositorio
