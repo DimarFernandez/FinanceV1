@@ -1,4 +1,4 @@
-# Pronostico Financiero de Portafolio de Inversion en Real Estate
+# Pronostico Financiero de Portafolio de Inversion
 
 Proyecto de Investigacion en **Machine Learning** para entrenar una rede neuronal recurrente(RNN), basado en LSTM( Red de Memoria a Corto y Largo Plazo (en inglés, Long Short-Term Memory), generarn un pronostico para los siguiente 6 meses.
 
@@ -16,7 +16,7 @@ FINANCEV1/
 │  ├─ interim/              # intermedios/temporales
 │  ├─ processed/            # dataset final para modelado (parquet)
 ├─ models/
-│  ├─ pipeline.pkl          # pipeline sklearn (preprocesamiento + modelo)
+│  ├─ pipeline_lstm.pkl          # pipeline sklearn (preprocesamiento + modelo)
 │  └─ pipeline_meta.json    # metadatos (columnas, umbral, scores CV)
 ├─ notebooks/
 │  ├─ 01_Ingesta_data.ipynb
