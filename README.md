@@ -85,7 +85,7 @@ Ejecutar notebooks en orden:
 
 ## Métricas y gráficos
 
-- **Validación:** **RMSE** (adecuada para desbalance), además de ROC-AUC y `classification_report`.
+- **Validación:** **RMSE** (adecuada para desbalance), además de MAE.
 - **Holdout:** 80/20 estratificado.
 - **Figuras generadas** (ver `reports/result_lstm/`):
   - `forecast_portfolio_1.0_accumulated.png` – Pronostico Acumulado de Net Income Para el Portafolio L2-All.  
