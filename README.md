@@ -4,33 +4,34 @@ Proyecto de Investigacion en **Machine Learning** para entrenar una rede neurona
 
 ### Curso : Proyecto de Investigación II
 #### Integrante: 
-    Diego Fernandez 
+    Diego Fernandez.  
 ---
 
 ## Estructura del repositorio
 
 ```
-DETECCION_CORRUPCION/
+FINANCEV1/
 ├─ data/
 │  ├─ raw/                  # datos fuente (solo lectura)
 │  ├─ interim/              # intermedios/temporales
 │  ├─ processed/            # dataset final para modelado (parquet)
-│  └─ external/             # fuentes externas (si aplica)
 ├─ models/
 │  ├─ pipeline.pkl          # pipeline sklearn (preprocesamiento + modelo)
 │  └─ pipeline_meta.json    # metadatos (columnas, umbral, scores CV)
 ├─ notebooks/
-│  ├─ 01_exploracion_diccionarios.ipynb
-│  ├─ 02_construir_dataset_maestro_final.ipynb
-│  ├─ 03_entrenamiento_evaluacion_final.ipynb
-│  └─ EDA_baseline.ipynb
+│  ├─ 01_Ingesta_data.ipynb
+│  ├─ 02_EDA basico.ipynb
+│  ├─ 03_EDA basico propertydata fullipynb
+│  ├─ 04-EDA basico GL Full.ipynb
+│  ├─ 05-EDA basico GL Net Income.ipynb
+│  └─ 06-Entrenamiento modelo LSTM.ipynb
 ├─ reports/
 │  └─ figures/
-│     ├─ 01_target_dist.png
-│     ├─ 02_missing_top20.png
-│     ├─ 03_importance_perm.png
-│     ├─ 04_corr_heatmap.png
-│     └─ 05_top_categorias.png
+│     ├─ 01_figura.png
+│     ├─ 02_figura.png
+│     ├─ 03_figura.png
+│     ├─ 04_figura.png
+│     └─ 05_figura.png
 ├─ scripts/
 │  ├─ ingest.py             # ingesta con hash y logging
 │  └─ preprocess.py         # limpieza mínima y verificación de processed
@@ -47,9 +48,9 @@ DETECCION_CORRUPCION/
 
 ## Objetivo
 
-- **Problema:** identificar **obras con riesgo de corrupción** a partir de información administrativa y de ejecución.
-- **Target:** `y_riesgo` (binario). En la versión actual se deriva principalmente de `OBRA_RIESGO` / `OBRA_RIESGO_DESC` (Matriz 1A/2A/3A) tras normalizar llaves (`CODIGO_UNICO` ↔ `COD_UNICO`/`CODIGO_OBRA`/`IDENTIFICADOR_OBRA`).
-- **Dataset actual:** `data/processed/dataset_obras.parquet`.
+- **Problema:** procesar la informacion contable de cada portafolio de inversion, para la generacion de los pronosticos.
+- **Target:** En la versión actual esta considerando el entrenamiento sobre la informacion generado por cada empresa / portafolio .
+- **Dataset actual:** `data/processed/dataset_portafolio_anual.parquet`.
 
 ---
 
@@ -75,23 +76,23 @@ Ejecutar notebooks en orden:
 3. `EDA_baseline.ipynb` – genera figuras en `reports/figures/`.
 
 ### 4) Entrenamiento y evaluación
-`03_entrenamiento_evaluacion_final.ipynb` compara modelos (**LogReg / RandomForest / GradientBoosting**) con **PR-AUC CV (5 folds)**, calcula **umbral óptimo por F1**, y guarda:
+`06-Entrenamiento modelo LSTM.ipynb` utilizando un RNN , utilizando el modelo basado en (**LSTM**) con **RMSE CV (5 folds)**, calcula **umbral óptimo por F1**, y guarda:
 
-- `models/pipeline.pkl`  
-- `models/pipeline_meta.json` (columnas, PR-AUC por modelo, `best_threshold_f1`)
+- `models/pipeline_lstm.pkl`  
+- `models/pipeline_meta.json` (columnas, RMSE por modelo, `best_threshold_f1`)
 
 ---
 
 ## Métricas y gráficos
 
-- **Validación:** **PR-AUC** (adecuada para desbalance), además de ROC-AUC y `classification_report`.
+- **Validación:** **RMSE** (adecuada para desbalance), además de ROC-AUC y `classification_report`.
 - **Holdout:** 80/20 estratificado.
 - **Figuras generadas** (ver `reports/figures/`):
-  - `01_target_dist.png` – distribución del target.  
-  - `02_missing_top20.png` – nulos por columna (Top 20).  
-  - `03_importance_perm.png` – *permutation importance* (índices transformados).  
-  - `04_corr_heatmap.png` – matriz de correlación numérica.  
-  - `05_top_categorias.png` – top categorías (ej. `SECTOR`).
+  - `01_target.png` – distribución del target.  
+  - `02_missing.png` – nulos por columna (Top 20).  
+  - `03_importance.png` – *permutation importance* (índices transformados).  
+  - `04_corr.png` – matriz de correlación numérica.  
+  - `05_top.png` – top categorías (ej. `SECTOR`).
 
 ---
 
@@ -128,12 +129,12 @@ Variables opcionales en `.env` (ver `.env.example`).
 ## 📓 Notas de datos
 
 - **Claves:**  
-  - Obra: `CODIGO_UNICO` (variantes: `CODIGO_OBRA`, `IDENTIFICADOR_OBRA`).  
-  - Matriz: `COD_UNICO` / `CODIGO_OBRA` / `IDENTIFICADOR_OBRA`.  
-  - Empresa: `codigo_ruc`.  
-  - Miembro: `codigo_dni`.
+  - Portafolio: `PORTFOLIOID`.  
+  - Empresa: `ENTREPRISEID` / `ENTITYADMINID`.  
+  - Propiedad: `PROPERTYID`.  
+  
 
-- **Prevención de fuga (leakage):** del entrenamiento se excluyen `OBRA_RIESGO`, `OBRA_RIESGO_DESC`, `PROYECTO_RIESGO`, `PROYECTO_RIESGO_DESC` y **todas las llaves**.
+- **Prevención de fuga (leakage):** del entrenamiento se excluyen `PURCHASE_DATE`, `PURCHASE_PRICE`, `STATUS`, `ADDRESSPROYECTO_RIESGO_DESC` y **todas las llaves**.
 
 ---
 
@@ -143,20 +144,19 @@ Variables opcionales en `.env` (ver `.env.example`).
 - [x] Dataset definido y disponible en `data/processed`.  
 - [x] Scripts reproducibles: **ingesta** y **preprocesamiento** con **logs** y **hash**.  
 - [x] EDA y **gráficos** en `reports/figures/`.  
-- [x] Baseline mínimo: comparación de modelos por **PR-AUC**, umbral óptimo, **pipeline** y **metadatos** guardados.  
+- [x] Baseline mínimo: comparación de modelos por **RMSE**, umbral óptimo, **pipeline** y **metadatos** guardados.  
 - [x] API lista para demo interna.
 
 ---
 
-## 🗺️ Roadmap corto
+## 📌 Roadmap corto
 
-1. Aumentar clase negativa (0) y enriquecer features de Empresa/Miembro.  
-2. Calibración de probabilidades (isotonic) y explicabilidad (SHAP/permutación detallada).  
-3. Orquestación (Makefile/DVC) y Docker para despliegue.  
+1. Aumentar los ratios Financieros, para complementar el entrenamiento.  
+2. Orquestación (Makefile/DVC) y Docker para despliegue.  
 
 ---
 
-## 👥 Créditos
+## 📜  Créditos
 
-Proyecto de tesis de maestría: **Detección de Riesgos de Corrupción en Obras Públicas**.  
-Autores / contacto: _[agregar nombres y correo]_
+Proyecto de tesis de maestría: **Pronostico Financiero de Portafolio de Inversion en Real Estate**.  
+
