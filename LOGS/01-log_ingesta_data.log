@@ -1,0 +1,47 @@
+2025-10-02 14:54:03,435 - INFO - Ingesta & Preprocesamiento: cargando dataset :PORTFOLIO_DATA.CSV
+2025-10-02 14:54:03,444 - INFO - PORTFOLIO_DATA.CSV: Asigna Titulo a Columnas
+2025-10-02 14:54:03,450 - INFO - PORTFOLIO_DATA.CSV: Genera dataset Procesado a PROCESSED_PORTFOLIO_DATA.CSV
+2025-10-02 14:54:03,461 - INFO - Ingesta & Preprocesamiento: cargando dataset :PROPERTY_DATA.CSV
+2025-10-02 14:54:03,467 - INFO - PROPERTY_DATA.CSV: Asigna Titulo a Columnas
+2025-10-02 14:54:03,469 - INFO - PROPERTY_DATA.CSV: Genera dataset Procesado a PROCESSED_PROPERTY_DATA.CSV
+2025-10-02 14:54:03,484 - INFO - Combina Archivos: PROCESSED_PROPERTY_DATA &  PROCESSED_PORTFOLIO_DATA
+2025-10-02 14:54:03,498 - INFO - PROCESSED_PROPERTYPORTFOLIO_DATA.CSV: Genera dataset combinando archivo de datos
+2025-10-02 14:54:03,510 - INFO - Ingesta & Preprocesamiento: cargando dataset :PROPERTY_DATA_ALL.CSV
+2025-10-02 14:54:03,517 - INFO - PROPERTY_DATA_ALL.CSV: Asigna Titulo a Columnas
+2025-10-02 14:54:03,517 - INFO - PORTFOLIO_DATA.CSV: Genera dataset Procesado a PROCESSED_PROPERTY_DATA_ALL.CSV
+2025-10-02 14:54:03,536 - INFO - Ingesta & Preprocesamiento: cargando dataset :GL_DATA_ALL.CSV
+2025-10-02 14:54:05,053 - INFO - GL_DATA_ALL.CSV: Asigna Titulo a Columnas
+2025-10-02 14:54:10,479 - INFO - GL_DATA_ALL.CSV: Genera dataset Procesado a PROCESSED_GL_DATA_ALL.CSV
+2025-10-02 14:54:13,038 - INFO - Ingesta & Preprocesamiento: cargando dataset : GL_DATA_ALL.CSV
+2025-10-02 14:54:16,009 - INFO - GL_DATA_ALL.CSV: Asigna Titulo a Columnas
+2025-10-02 14:54:23,919 - INFO - GL_DATA_ALL.CSV: Genera dataset Procesado a PROCESSED_GL_DATA_ALL_P_L_ANNUAL.CSV
+2025-10-02 14:54:23,963 - INFO - Ingesta & Preprocesamiento: Iniciando carga y cálculo de P&L por Empresa/Portafolio.
+2025-10-02 14:54:26,307 - INFO - Datos cargados exitosamente desde '../DATA/RAW/GL_DATA_ALL.CSV'. Dimensiones: (293974, 34)
+2025-10-02 14:54:26,307 - INFO - GL_DATA_ALL.CSV: Asigna Título a Columnas
+2025-10-02 14:54:26,371 - INFO - Aplicando filtros y agrupando para el cálculo de Net Income.
+2025-10-02 14:54:26,499 - INFO - Generación de dataset de P&L: PROCESSED_GL_DATA_ALL_P_L_ANNUAL_PER_ENTERPRISE.csv
+2025-10-02 14:54:26,527 - INFO - Ingesta & Preprocesamiento: Iniciando carga y cálculo de P&L por Empresa/Portafolio.
+2025-10-02 14:54:27,863 - INFO - Datos cargados exitosamente desde '../DATA/RAW/GL_DATA_ALL.CSV'. Dimensiones: (293974, 34)
+2025-10-02 14:54:27,863 - INFO - GL_DATA_ALL.CSV: Asigna Título a Columnas
+2025-10-02 14:54:27,895 - INFO - Aplicando filtros y agrupando para el cálculo de Net Income.
+2025-10-02 14:54:28,023 - INFO - Generación de dataset de P&L: PROCESSED_GL_DATA_ALL_P_L_ANNUAL_MONTHLY_PER_ENTERPRISE.csv
+2025-10-02 14:54:28,045 - INFO - Ingesta & Preprocesamiento: Iniciando carga y cálculo de P&L por Empresa/Portafolio.
+2025-10-02 14:54:29,422 - INFO - Datos cargados exitosamente desde '../DATA/RAW/GL_DATA_ALL.CSV'. Dimensiones: (293974, 34)
+2025-10-02 14:54:29,422 - INFO - GL_DATA_ALL.CSV: Asigna Título a Columnas
+2025-10-02 14:54:29,486 - INFO - Aplicando filtros y agrupando para el cálculo de Net Income.
+2025-10-02 14:54:29,596 - INFO - Generando la clave compuesta 'PKRECORD'.
+2025-10-02 14:54:29,658 - INFO - Generación de dataset de P&L: PROCESSED_GL_DATA_ALL_P_L_ANNUAL_MONTHLY_PER_ENTERPRISEV4.csv
+2025-10-02 14:54:29,690 - INFO - Ingesta & Preprocesamiento: Iniciando carga y cálculo de P&L por Empresa/Portafolio.
+2025-10-02 14:54:31,138 - INFO - Datos cargados exitosamente desde '../DATA/RAW/GL_DATA_ALL.CSV'. Dimensiones: (293974, 34)
+2025-10-02 14:54:31,138 - INFO - GL_DATA_ALL.CSV: Asigna Título a Columnas
+2025-10-02 14:54:31,202 - INFO - Aplicando filtros y agrupando para el cálculo de Net Income.
+2025-10-02 14:54:31,303 - INFO - Aplicando corrección: NETINCOME = NETINCOME * -1.
+2025-10-02 14:54:31,303 - INFO - Generando la clave compuesta 'PKRECORD'.
+2025-10-02 14:54:31,392 - INFO - Generación de dataset de P&L: PROCESSED_GL_DATA_ALL_P_L_ANNUAL_MONTHLY_PER_ENTERPRISEV5.csv
+2025-10-02 14:54:31,452 - INFO - Ingesta & Preprocesamiento: Iniciando carga y cálculo de P&L por Empresa/Portafolio.
+2025-10-02 14:54:33,298 - INFO - Datos cargados exitosamente desde '../DATA/RAW/GL_DATA_ALL.CSV'. Dimensiones: (293974, 34)
+2025-10-02 14:54:33,298 - INFO - GL_DATA_ALL.CSV: Asigna Título a Columnas
+2025-10-02 14:54:33,362 - INFO - Aplicando filtros y agrupando para el cálculo de Net Income.
+2025-10-02 14:54:33,491 - INFO - Aplicando corrección: NETINCOME = NETINCOME * -1.
+2025-10-02 14:54:33,491 - INFO - Generando la clave compuesta 'PKRECORD'.
+2025-10-02 14:54:33,507 - INFO - Generación de dataset de P&L: PROCESSED_GL_DATA_ALL_P_L_ANNUAL_MONTHLY_PER_ENTERPRISEV6.csv
