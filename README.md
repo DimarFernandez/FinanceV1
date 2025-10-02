@@ -18,34 +18,37 @@ Proyecto de Investigacion en **Machine Learning** para entrenar una rede neurona
 ```
 FINANCEV1/
 ├─ data/
-│  ├─ raw/                  # datos fuente (solo lectura)
-│  ├─ interim/              # intermedios/temporales
-│  ├─ processed/            # dataset final para modelado (parquet)
+│  ├─ raw/                  # datos fuente  
+│  ├─ processed/            # dataset final para modelado (csv)
 ├─ models/
-│  ├─ pipeline_lstm.pkl          # pipeline sklearn (preprocesamiento + modelo)
-│  └─ pipeline_meta.json    # metadatos (columnas, umbral, scores CV)
+│  ├─ lstm_entity_1.0_p1.0.keras  
+│  ├─ lstm_entity_3.0_p3.0.keras  
+│  ├─ lstm_entity_4.0_p4.0.keras 
 ├─ notebooks/
-│  ├─ 01_Ingesta_data.ipynb
-│  ├─ 02_EDA basico.ipynb
-│  ├─ 03_EDA basico propertydata fullipynb
-│  ├─ 04-EDA basico GL Full.ipynb
-│  ├─ 05-EDA basico GL Net Income.ipynb
-│  └─ 06-Entrenamiento modelo LSTM.ipynb
+│  ├─ 01_INGESTA DATA.ipynb
+│  ├─ 02_EDA PORTFOLIO-PROPERTY.ipynb
+│  ├─ 03_EDA PROPERTYDATA.ipynb
+│  ├─ 04-EDA GENERAL LEDGER.ipynb
+│  ├─ 05-EDA GENERAL LEDGER NET INCOME.ipynb
+│  ├─ 06-EDA GENERAL LEDGER NET INCOME.ipynb
+│  └─ 07-ENTRENAMIENTO MODELO RNN-LSTM.ipynb
+├─ logs/
+│  ├─ 01-log_ingesta_data.log
+│  ├─ 02_eda_basic_propertydata.log
+│  ├─ 03-eda_PROPERTY_DATA.log
+│  ├─ 04-eda_GENERAL_LEDGER.log
+│  ├─ 05-eda_general_ledger_netincome.log
+│  ├─ 06-eda_general_ledger_netincome.log
+│  ├─ 07-entrenamiento_lstm.log
 ├─ reports/
-│  └─ figures/
-│     ├─ 01_figura.png
-│     ├─ 02_figura.png
-│     ├─ 03_figura.png
-│     ├─ 04_figura.png
-│     └─ 05_figura.png
-├─ scripts/
-│  ├─ ingest.py             # ingesta con hash y logging
-│  └─ preprocess.py         # limpieza mínima y verificación de processed
+│  └─ result_lstm/
+│     ├─ forecast_portfolio_1.0_accumulated.png
+│     ├─ forecast_portfolio_3.0_accumulated.png
+│     ├─ forecast_portfolio_4.0_accumulated.png
+│     ├─ 0SUMMARY_RESULTS_PORTFOLIO_LSTM_EPOCH100.xlsx
 ├─ src/
 │  ├─ api/                  # FastAPI para servir el modelo
 │  ├─ config/ data/ features/ models/ utils/  # módulos auxiliares
-├─ tests/
-├─ .env / .env.example
 ├─ README.md
 └─ requirements.txt
 ```
@@ -54,51 +57,41 @@ FINANCEV1/
 
 ## Objetivo
 
-- **Problema:** procesar la informacion contable de cada portafolio de inversion, para la generacion de los pronosticos.
-- **Target:** En la versión actual esta considerando el entrenamiento sobre la informacion generado por cada empresa / portafolio .
-- **Dataset actual:** `data/processed/dataset_portafolio_anual.parquet`.
+- **Problema:** Procesar la informacion contable de cada empresa y agruparlas por portafolio de inversion, para la generar el pronostico de NetIncome mensual de un determinado n meses.
+- **Alcance:** En la versión actual esta considerando el entrenamiento sobre la informacion generado por cada empresa / portafolio .
+- **Dataset actual:** `data/processed/PROCESSED_GL_DATA_ALL_P_L_ANNUAL_MONTHLY_PER_ENTERPRISEV6.csv`.
 
 ---
 
 ## Reproducibilidad
 
-### 1) Ingesta (copia a `data/raw/` + hash + log)
-```bash
-python scripts/ingest.py "C:/ruta/DS_DASH_Obra_1A.csv"
-# salida: data/datasets.json (registro) y logs/ingest.log
-```
-
-### 2) Preprocesamiento mínimo (verificación y limpieza básica)
-```bash
-python scripts/preprocess.py
-# salida: data/processed/dataset_obras.parquet y logs/preprocess.log
-```
-
-### 3) Construcción del dataset maestro
+### 1) Construcción del dataset 
 Ejecutar notebooks en orden:
 
-1. `01_exploracion_diccionarios.ipynb` – mapeo/estandarización de campos.  
-2. `02_construir_dataset_maestro_final.ipynb` – unión Obra+Empresa+Miembro, etiquetado desde Matriz, limpieza y export a parquet (`dataset_obras.parquet`).  
-3. `EDA_baseline.ipynb` – genera figuras en `reports/figures/`.
+1. `01_INGESTA DATA.ipynb` – Ingestas y Procesamiento de datos ,Union de Dataset Portafolio + Propiedades.  
+2. `02_EDA PORTFOLIO-PROPERTY.ipynb` – Analisis de los datos del Portafolio - Propiedad, generando imagenes.  
+3. `03_EDA PROPERTYDATA.ipynb` – Analisis de los datos del Propiedad, generando imagenes.  
+4. `04-EDA GENERAL LEDGER.ipynb` – Analisis de los datos del Portafolio - Propiedad - General Ledger, generando imagenes.  
+5. `05-EDA GENERAL LEDGER NET INCOME.ipynb` – Analisis de los datos del  Portafolio - Propiedad - General Ledger por Entidad, generando imagenes.  
+6. `06-EDA GENERAL LEDGER NET INCOME.ipynb` – Analisis de los datos del  Portafolio - Propiedad - General Ledger por Portafolio, generando imagenes.  
 
-### 4) Entrenamiento y evaluación
-`06-Entrenamiento modelo LSTM.ipynb` utilizando un RNN , utilizando el modelo basado en (**LSTM**) con **RMSE CV (5 folds)**, calcula **umbral óptimo por F1**, y guarda:
 
-- `models/pipeline_lstm.pkl`  
-- `models/pipeline_meta.json` (columnas, RMSE por modelo, `best_threshold_f1`)
+### 2) Entrenamiento y evaluación
+`07-ENTRENAMIENTO MODELO RNN-LSTM.ipynb` utilizando un RNN basado en un modelo (**LSTM**) con **RMSE CV (5 folds)**, calcula **umbral óptimo por MAE**, y guarda:
+- `models/lstm_entity_1.0_p1.0.keras`  
 
 ---
+
 
 ## Métricas y gráficos
 
 - **Validación:** **RMSE** (adecuada para desbalance), además de ROC-AUC y `classification_report`.
 - **Holdout:** 80/20 estratificado.
-- **Figuras generadas** (ver `reports/figures/`):
-  - `01_target.png` – distribución del target.  
-  - `02_missing.png` – nulos por columna (Top 20).  
-  - `03_importance.png` – *permutation importance* (índices transformados).  
-  - `04_corr.png` – matriz de correlación numérica.  
-  - `05_top.png` – top categorías (ej. `SECTOR`).
+- **Figuras generadas** (ver `reports/result_lstm/`):
+  - `forecast_portfolio_1.0_accumulated.png` – Pronostico Acumulado de Net Income Para el Portafolio L2-All.  
+  - `forecast_portfolio_3.0_accumulated.png` – Pronostico Acumulado de Net Income Para el Portafolio L2B.  
+  - `forecast_portfolio_4.0_accumulated.png` – Pronostico Acumulado de Net Income Para el Portafolio LJL.  
+  - `SUMMARY_RESULTS_PORTFOLIO_LSTM_EPOCH300.xlsx` – Resultado del proceso de entranmiento con n meses de pronostico.  
 
 ---
 
@@ -148,8 +141,8 @@ Variables opcionales en `.env` (ver `.env.example`).
 
 - [x] Repositorio con carpetas mínimas (`data/raw`, `notebooks`, `src/`).  
 - [x] Dataset definido y disponible en `data/processed`.  
-- [x] Scripts reproducibles: **ingesta** y **preprocesamiento** con **logs** y **hash**.  
-- [x] EDA y **gráficos** en `reports/figures/`.  
+- [x] Notebooks reproducibles: **ingesta** y **preprocesamiento** con **logs**.  
+- [x] EDA y **gráficos** en cada notebooks.  
 - [x] Baseline mínimo: comparación de modelos por **RMSE**, umbral óptimo, **pipeline** y **metadatos** guardados.  
 - [x] API lista para demo interna.
 
@@ -158,7 +151,7 @@ Variables opcionales en `.env` (ver `.env.example`).
 ## 📌 Roadmap corto
 
 1. Aumentar los ratios Financieros, para complementar el entrenamiento.  
-2. Orquestación (Makefile/DVC) y Docker para despliegue.  
+2. Implementacion en Docker para despliegue.  
 
 ---
 
