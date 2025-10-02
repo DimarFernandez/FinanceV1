@@ -1,17 +1,19 @@
-# Pronostico Financiero de Portafolio de Inversion
-
-Proyecto de Investigacion en **Machine Learning** para entrenar una rede neuronal recurrente(RNN), basado en LSTM( Red de Memoria a Corto y Largo Plazo (en inglés, Long Short-Term Memory), generarn un pronostico para los siguiente 6 meses.
-
-
-
-<img width="990" height="600" alt="Captura de pantalla 2025-09-25 a la(s) 8 25 53 p  m" src="img_rdme/001-Diagrama_de_Clases.jpg" />
-
-
-
 ### Curso : Proyecto de Investigación II
 #### Integrante: 
-    Diego Fernandez.  
+    * Diego Fernandez A.  
 ---
+
+# Pronostico Financiero de Portafolio de Propiedades en Real Estate
+
+Proyecto de Investigacion en **Machine Learning** para entrenar una red neuronal recurrente(RNN), basado en LSTM(Long Short-Term Memory), con la finalidad que entrene un modelo que procesa la informacion historica de los libros contables y poder generar un pronostico de "n" meses por cada portafolio de propiedades.
+---
+
+
+<img width="900" height="600" alt="Captura de pantalla 2025-09-25 a la(s) 8 25 53 p  m" src="img_rdme/001-Diagrama_de_Clases.jpg" />
+
+
+
+
 
 ## Estructura del repositorio
 
