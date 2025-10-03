@@ -9,13 +9,13 @@
  Proyecto de Investigacion en **Machine Learning** para entrenar una red neuronal recurrente(RNN), basado en LSTM(Long Short-Term Memory), con la finalidad que entrene un modelo que procesa la informacion historica de los libros contables y poder generar un pronostico de "n" meses por cada portafolio de propiedades.
 
 ---
-<img width="900" height="600" alt="Captura de pantalla 2025-09-25 a la(s) 8 25 53 p  m" src="img_rdme/004-mapa.jpg" />
+<img width="900" height="600" src="img_rdme/004-mapa.jpg" />
 ---
-<img width="900" height="600" alt="Captura de pantalla 2025-09-25 a la(s) 8 25 53 p  m" src="img_rdme/002-WorkFlow.jpg" />
+<img width="900" height="600" src="img_rdme/002-WorkFlow.jpg" />
 ---
-<img width="900" height="600" alt="Captura de pantalla 2025-09-25 a la(s) 8 25 53 p  m" src="img_rdme/003-p&l example.jpg" />
+<img width="900" height="600" src="img_rdme/003-p&l example.jpg" />
 ---
-<img width="900" height="600" alt="Captura de pantalla 2025-09-25 a la(s) 8 25 53 p  m" src="img_rdme/001-Diagrama_de_Clases.jpg" />
+<img width="900" height="600" src="img_rdme/001-Diagrama_de_Clases.jpg" />
 ---
 
 
@@ -99,6 +99,9 @@ Ejecutar notebooks en orden:
   - `forecast_portfolio_3.0_accumulated.png` – Pronostico Acumulado de Net Income Para el Portafolio L2B.  
   - `forecast_portfolio_4.0_accumulated.png` – Pronostico Acumulado de Net Income Para el Portafolio LJL.  
   - `SUMMARY_RESULTS_PORTFOLIO_LSTM_EPOCH300.xlsx` – Resultado del proceso de entranmiento con n meses de pronostico.  
+---
+  <img width="600" height="300"   src="img_rdme/006-resultado.jpg" />
+
 
 ---
 
@@ -111,6 +114,9 @@ Ejecuta la API con **Streamlit** (en `http://localhost:8503/`):
 ```
   - Usa `models//lstm_entity_1.0_p1.0.keras` .
 ---
+<img width="900" height="600"   src="img_rdme/005-app.jpg" />
+---
+
 
 ## 📓 Notas de datos
 
