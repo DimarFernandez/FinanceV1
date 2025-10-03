@@ -104,13 +104,13 @@ Ejecutar notebooks en orden:
 
 ## 🚀 API (serving)
 
-Ejecuta la API con **FastAPI** (en `src/api/`):
+Ejecuta la API con **Streamlit** (en `src/api/`):
 
 ```bash
 uvicorn src.api.main:app --reload
 ```
 
-- `POST /predict_proba` → `{ proba, threshold, riesgoso }`
+- `POST /predict_portfolio` → `{ proba, threshold, riesgoso }`
   - Usa `models/pipeline.pkl` y `best_threshold_f1` de `models/pipeline_meta.json`.
 - Importante: el JSON de entrada debe incluir **las mismas columnas** que espera el pipeline (nombres como en el parquet).
 
@@ -122,15 +122,9 @@ uvicorn src.api.main:app --reload
 python -m venv .venv
 # Windows:
 .venv\Scripts\activate
-# Linux/Mac:
-# source .venv/bin/activate
 
 pip install -r requirements.txt
 ```
-
-Variables opcionales en `.env` (ver `.env.example`).
-
----
 
 ## 📓 Notas de datos
 
@@ -138,10 +132,7 @@ Variables opcionales en `.env` (ver `.env.example`).
   - Portafolio: `PORTFOLIOID`.  
   - Empresa: `ENTREPRISEID` / `ENTITYADMINID`.  
   - Propiedad: `PROPERTYID`.  
-  
-
 - **Prevención de fuga (leakage):** del entrenamiento se excluyen `PURCHASE_DATE`, `PURCHASE_PRICE`, `STATUS`, `ADDRESSPROYECTO_RIESGO_DESC` y **todas las llaves**.
-
 ---
 
 ## ✅ Checklist del asesor
