@@ -104,27 +104,13 @@ Ejecutar notebooks en orden:
 
 ## 🚀 API (serving)
 
-Ejecuta la API con **Streamlit** (en `src/api/`):
+Ejecuta la API con **Streamlit** (en `http://localhost:8503/`):
 
 ```bash
-uvicorn src.api.main:app --reload
+ streamlit run app.py
 ```
-
-- `POST /predict_portfolio` → `{ proba, threshold, riesgoso }`
-  - Usa `models/pipeline.pkl` y `best_threshold_f1` de `models/pipeline_meta.json`.
-- Importante: el JSON de entrada debe incluir **las mismas columnas** que espera el pipeline (nombres como en el parquet).
-
+  - Usa `models//lstm_entity_1.0_p1.0.keras` .
 ---
-
-## ⚙️ Entorno
-
-```bash
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-
-pip install -r requirements.txt
-```
 
 ## 📓 Notas de datos
 
