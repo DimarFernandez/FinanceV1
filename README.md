@@ -8,18 +8,8 @@
 
  Proyecto de Investigacion en **Machine Learning** para entrenar una red neuronal recurrente(RNN), basado en LSTM(Long Short-Term Memory), con la finalidad que entrene un modelo que procesa la informacion historica de los libros contables y poder generar un pronostico de "n" meses por cada portafolio de propiedades.
 
----
-<img width="900" height="600" src="img_rdme/004-mapa.jpg" />
----
-<img width="900" height="600" src="img_rdme/002-WorkFlow.jpg" />
----
-<img width="900" height="600" src="img_rdme/003-p&l example.jpg" />
----
-<img width="900" height="600" src="img_rdme/001-Diagrama_de_Clases.jpg" />
----
-
-
-
+ 
+ 
 ## Estructura del repositorio
 
 ```
@@ -39,6 +29,7 @@ FINANCEV1/
 │  ├─ 05-EDA GENERAL LEDGER NET INCOME.ipynb
 │  ├─ 06-EDA GENERAL LEDGER NET INCOME.ipynb
 │  └─ 07-ENTRENAMIENTO MODELO RNN-LSTM.ipynb
+│  └─ 08-EDA & ACCIONABLES GL P&L.ipynb (Actualizacion 10-09-2025)
 ├─ logs/
 │  ├─ 01-log_ingesta_data.log
 │  ├─ 02_eda_basic_propertydata.log
