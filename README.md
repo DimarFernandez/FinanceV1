@@ -29,7 +29,7 @@ FINANCEV1/
 │  ├─ 05-EDA GENERAL LEDGER NET INCOME.ipynb
 │  ├─ 06-EDA GENERAL LEDGER NET INCOME.ipynb
 │  └─ 07-ENTRENAMIENTO MODELO RNN-LSTM.ipynb
-│  └─ 08-EDA & ACCIONABLES GL P&L.ipynb (Actualizacion 10-09-2025)
+│  └─ 08-EDA & ACCIONABLES GL P&L.ipynb 
 ├─ logs/
 │  ├─ 01-log_ingesta_data.log
 │  ├─ 02_eda_basic_propertydata.log
@@ -72,6 +72,7 @@ Ejecutar notebooks en orden:
 4. `04-EDA GENERAL LEDGER.ipynb` – Analisis de los datos del Portafolio - Propiedad - General Ledger, generando imagenes.  
 5. `05-EDA GENERAL LEDGER NET INCOME.ipynb` – Analisis de los datos del  Portafolio - Propiedad - General Ledger por Entidad, generando imagenes.  
 6. `06-EDA GENERAL LEDGER NET INCOME.ipynb` – Analisis de los datos del  Portafolio - Propiedad - General Ledger por Portafolio, generando imagenes.  
+6. `08-EDA & ACCIONABLES GL P&L.ipynb` – genera un flujo de trabajo para visulizar las conclusiones accionables obtenidas del EDA, enfocado en el analisis de negocio o modelado predictivo.  
 
 
 ### 2) Entrenamiento y evaluación
