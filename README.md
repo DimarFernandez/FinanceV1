@@ -48,7 +48,7 @@ FINANCEV1/
 │  ├─ api/                  # FastAPI para servir el modelo
 │  ├─ config/ data/ features/ models/ utils/  # módulos auxiliares
 ├─ README.md
-└─ requirements.txt
+└─ requirements.txt 
 ```
 
 ---
