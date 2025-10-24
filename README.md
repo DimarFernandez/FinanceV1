@@ -1,4 +1,4 @@
-### Curso : Proyecto de Investigación II
+### Curso : Proyecto de Investigación II / Spring #2
 #### Integrante: 
     * Diego Fernandez A.  
 ---
@@ -30,6 +30,8 @@ FINANCEV1/
 │  ├─ 06-EDA GENERAL LEDGER NET INCOME.ipynb
 │  └─ 07-ENTRENAMIENTO MODELO RNN-LSTM.ipynb
 │  └─ 08-EDA & ACCIONABLES GL P&L.ipynb 
+│  └─ 09-Feature Engineering.ipynb 
+│  └─ 10-ENTRENAMIENTO MODELO RNN-LSTM-VARIANTES.ipynb 
 ├─ logs/
 │  ├─ 01-log_ingesta_data.log
 │  ├─ 02_eda_basic_propertydata.log
@@ -38,6 +40,7 @@ FINANCEV1/
 │  ├─ 05-eda_general_ledger_netincome.log
 │  ├─ 06-eda_general_ledger_netincome.log
 │  ├─ 07-entrenamiento_lstm.log
+│  ├─ 10-entrenamiento_lstm.log
 ├─ reports/
 │  └─ result_lstm/
 │     ├─ forecast_portfolio_1.0_accumulated.png
@@ -72,7 +75,7 @@ Ejecutar notebooks en orden:
 4. `04-EDA GENERAL LEDGER.ipynb` – Analisis de los datos del Portafolio - Propiedad - General Ledger, generando imagenes.  
 5. `05-EDA GENERAL LEDGER NET INCOME.ipynb` – Analisis de los datos del  Portafolio - Propiedad - General Ledger por Entidad, generando imagenes.  
 6. `06-EDA GENERAL LEDGER NET INCOME.ipynb` – Analisis de los datos del  Portafolio - Propiedad - General Ledger por Portafolio, generando imagenes.  
-6. `08-EDA & ACCIONABLES GL P&L.ipynb` – genera un flujo de trabajo para visulizar las conclusiones accionables obtenidas del EDA, enfocado en el analisis de negocio o modelado predictivo.  
+7. `08-EDA & ACCIONABLES GL P&L.ipynb` – genera un flujo de trabajo para visulizar las conclusiones accionables obtenidas del EDA, enfocado en el analisis de negocio o modelado predictivo.  
 
 
 ### 2) Entrenamiento y evaluación
@@ -80,7 +83,11 @@ Ejecutar notebooks en orden:
 - `models/lstm_entity_1.0_p1.0.keras`  
 
 ---
+`10-ENTRENAMIENTO MODELO RNN-LSTM-VARIANTES.ipynb` utilizando un RNN basado en un modelo (**LSTM**) con **RMSE CV (5 folds)**, calcula **umbral óptimo por MAE**, con 2 variantes considerando variaciones en los parametros  y guarda:
+- `models/lstm_entity_1.0_p1.0.keras`  
 
+
+<img width="800" height="500"   src="img_rdme/010-resultado.jpg" />
 
 ## Métricas y gráficos
 
@@ -128,12 +135,14 @@ Ejecuta la API con **Streamlit** (en `http://localhost:8503/`):
 - [x] Baseline mínimo: comparación de modelos por **RMSE**, umbral óptimo, **pipeline** y **metadatos** guardados.  
 - [x] API lista para demo interna.
 
+Sprint # 2
+- [x] Baseline con 2 variantes, con la finalidad de revisar eldesempeño de los datos para los pronosticos.
+
 ---
 
 ## 📌 Roadmap corto
 
-1. Aumentar los ratios Financieros, para complementar el entrenamiento.  
-2. Implementacion en Docker para despliegue.  
+1. Implementacion en Docker para despliegue.  
 
 ---
 
