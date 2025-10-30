@@ -32,6 +32,7 @@ FINANCEV1/
 │  └─ 08-EDA & ACCIONABLES GL P&L.ipynb 
 │  └─ 09-Feature Engineering.ipynb 
 │  └─ 10-ENTRENAMIENTO MODELO RNN-LSTM-VARIANTES.ipynb 
+│  └─ 11-Semana 7.ipynb 
 ├─ logs/
 │  ├─ 01-log_ingesta_data.log
 │  ├─ 02_eda_basic_propertydata.log
