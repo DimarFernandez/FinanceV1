@@ -33,6 +33,7 @@ FINANCEV1/
 │  └─ 09-Feature Engineering.ipynb 
 │  └─ 10-ENTRENAMIENTO MODELO RNN-LSTM-VARIANTES.ipynb 
 │  └─ 11-Semana 7.ipynb 
+│  └─ 12-PRONOSTICO BASELINE- OPTUNA.ipynb 
 ├─ logs/
 │  ├─ 01-log_ingesta_data.log
 │  ├─ 02_eda_basic_propertydata.log
