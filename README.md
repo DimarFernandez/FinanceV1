@@ -34,6 +34,7 @@ FINANCEV1/
 │  └─ 10-ENTRENAMIENTO MODELO RNN-LSTM-VARIANTES.ipynb 
 │  └─ 11-Semana 7.ipynb 
 │  └─ 12-PRONOSTICO BASELINE- OPTUNA.ipynb 
+│  └─ 13-ENTRENAMIENTO SEMANA12.ipynb 
 ├─ logs/
 │  ├─ 01-log_ingesta_data.log
 │  ├─ 02_eda_basic_propertydata.log
